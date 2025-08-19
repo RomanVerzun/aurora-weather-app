@@ -17,13 +17,13 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Приклади використання:
-  %(prog)s                      # Погода за автовизначенням IP
-  %(prog)s --city Kyiv          # Погода для Києва
-  %(prog)s --city "New York"    # Погода для міста з пробілом
-  %(prog)s --watch              # Автооновлення кожні 5 хвилин
-  %(prog)s --watch 60           # Автооновлення кожну хвилину
-  %(prog)s --no-cache           # Без використання кешу
-  %(prog)s --ttl 600            # Встановити TTL кешу 10 хвилин
+  ./weather                      # Погода за автовизначенням IP
+  ./weather --city Kyiv          # Погода для Києва
+  ./weather --city "New York"    # Погода для міста з пробілом
+  ./weather --watch              # Автооновлення кожні 5 хвилин
+  ./weather --watch 60           # Автооновлення кожну хвилину
+  ./weather --no-cache           # Без використання кешу
+  ./weather --ttl 600            # Встановити TTL кешу 10 хвилин
         """
     )
 
@@ -59,7 +59,7 @@ def main():
     parser.add_argument(
         '--version', '-v',
         action='version',
-        version='%(prog)s 1.0.0'
+        version='./weather 1.0.0'
     )
 
     # Парсимо аргументи
