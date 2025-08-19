@@ -8,6 +8,16 @@ import sys
 from weather_app import cli, cache
 
 
+def positive_int(value):
+    """Перевіряє, чи є значення додатнім int"""
+    try:
+        ivalue = int(value)
+        if ivalue <= 0:
+            raise argparse.ArgumentTypeError(f"{value} is an invalid positive int value")
+        return ivalue
+    except (ValueError, TypeError):
+        raise argparse.ArgumentTypeError(f"{value} is not a valid integer")
+
 def main():
     """Главная функция приложения"""
     
@@ -38,7 +48,7 @@ def main():
         '--watch', '-w',
         nargs='?',
         const=300,
-        type=int,
+        type=positive_int,
         metavar='SECONDS',
         help='Режим автооновлення з інтервалом у секундах (за замовчуванням 300)'
     )
@@ -51,7 +61,7 @@ def main():
     
     parser.add_argument(
         '--ttl',
-        type=int,
+        type=positive_int,
         default=cache.DEFAULT_TTL,
         help=f'TTL кешу в секундах (за замовчуванням {cache.DEFAULT_TTL})'
     )

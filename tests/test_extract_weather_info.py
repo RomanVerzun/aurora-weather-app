@@ -1,5 +1,5 @@
 import pytest
-from .api import extract_weather_info
+from src.weather_app.api import extract_weather_info
 
 def test_extract_weather_info_complete_data():
     """Test extraction with complete valid data"""

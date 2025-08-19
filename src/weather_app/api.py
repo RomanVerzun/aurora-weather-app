@@ -157,13 +157,25 @@ def extract_weather_info(data: Dict) -> Dict:
     current = data["current_condition"][0]
     area = data["nearest_area"][0]
     
+    def to_int(value: Optional[str]) -> int:
+        """Безпечне перетворення в int"""
+        if value is None:
+            return 0
+        try:
+            return int(value)
+        except (ValueError, TypeError):
+            return 0
+
+    country_list = area.get("country")
+    country = country_list[0].get("value", "") if country_list else ""
+
     return {
         "city": area["areaName"][0]["value"],
-        "country": area.get("country", [{}])[0].get("value", ""),
-        "temperature": int(current["temp_C"]),
-        "feels_like": int(current["FeelsLikeC"]),
+        "country": country,
+        "temperature": to_int(current.get("temp_C")),
+        "feels_like": to_int(current.get("FeelsLikeC")),
         "description": current["weatherDesc"][0]["value"],
-        "humidity": int(current["humidity"]),
-        "wind_speed": int(current["windspeedKmph"]),
-        "pressure": int(current["pressure"]),
+        "humidity": to_int(current.get("humidity")),
+        "wind_speed": to_int(current.get("windspeedKmph")),
+        "pressure": to_int(current.get("pressure")),
     }
