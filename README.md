@@ -9,7 +9,7 @@
 * **Linux/macOS:**
   ```bash
   chmod +x weather
-  ./weather --city "New York"
+  ./weather.sh --city "New York"
   ```
 
 * **Windows:**

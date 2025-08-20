@@ -27,13 +27,14 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Приклади використання:
-  ./weather                      # Погода за автовизначенням IP
-  ./weather --city Kyiv          # Погода для Києва
-  ./weather --city "New York"    # Погода для міста з пробілом
-  ./weather --watch              # Автооновлення кожні 5 хвилин
-  ./weather --watch 60           # Автооновлення кожну хвилину
-  ./weather --no-cache           # Без використання кешу
-  ./weather --ttl 600            # Встановити TTL кешу 10 хвилин
+  ./weather.sh                    # Погода за автовизначенням IP (Linux/macOS)
+  weather.bat                     # Погода за автовизначенням IP (Windows)
+  ./weather.sh --city Kyiv        # Погода для Києва (Linux/macOS)
+  weather.bat --city "New York"   # Погода для міста з пробілом (Windows)
+  ./weather.sh --watch            # Автооновлення кожні 5 хвилин (Linux/macOS)
+  ./weather.sh --watch 60         # Автооновлення кожну хвилину (Linux/macOS)
+  ./weather.sh --no-cache         # Без використання кешу (Linux/macOS)
+  ./weather.sh --ttl 600          # Встановити TTL кешу 10 хвилин (Linux/macOS)
         """
     )
 
